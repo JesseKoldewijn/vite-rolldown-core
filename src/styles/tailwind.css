@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ececec;
+  --color-foreground: #040404;
+}
+
+.dark {
+  --color-background: #040404;
+  --color-foreground: #ececec;
+}
+
+.system {
+  @media (prefers-color-scheme: dark) {
+    --color-background: #040404;
+    --color-foreground: #ececec;
+  }
+  @media (prefers-color-scheme: light) {
+    --color-background: #ececec;
+    --color-foreground: #040404;
+  }
+  @media (prefers-color-scheme: no-preference) {
+    --color-background: #040404;
+    --color-foreground: #ececec;
+  }
+}
+
+:root {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
