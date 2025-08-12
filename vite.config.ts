@@ -5,7 +5,15 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [tsconfigPaths() as never, react(), tailwindcss()],
+  plugins: [
+    tsconfigPaths(),
+    react({
+      babel: {
+        plugins: ["babel-plugin-react-compiler"],
+      },
+    }),
+    tailwindcss(),
+  ],
   build: {
     rollupOptions: {
       output: {

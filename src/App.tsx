@@ -1,4 +1,5 @@
 import { Counter } from "./components/counter";
+import { Theme } from "./components/theme";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
         Vite-Rolldown + React
       </h1>
       <Counter />
+      <Theme />
     </div>
   );
 }

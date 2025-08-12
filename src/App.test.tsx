@@ -29,13 +29,22 @@ describe("App Component", () => {
     );
   });
 
-  it("should render the Counter component", () => {
+  it("should render the Counter and Theme components", () => {
     render(<App />);
 
     // The Counter component should be present
     // We can check for elements that the Counter component renders
     const counterButton = screen.getByRole("button", { name: /count is/i });
     expect(counterButton).toBeInTheDocument();
+
+    // The Theme component should be present
+    const themeSelect = screen.getByRole("combobox");
+    expect(themeSelect).toBeInTheDocument();
+
+    const themeResetButton = screen.getByRole("button", {
+      name: /reset theme/i,
+    });
+    expect(themeResetButton).toBeInTheDocument();
   });
 
   it("should have proper semantic structure", () => {
@@ -54,7 +63,7 @@ describe("App Component", () => {
     expect(() => render(<App />)).not.toThrow();
   });
 
-  it("should contain both main elements (heading and counter)", () => {
+  it("should contain main elements (heading, counter, and theme)", () => {
     render(<App />);
 
     // Verify main heading exists
@@ -63,6 +72,12 @@ describe("App Component", () => {
     // Verify counter exists (looking for the count button)
     expect(
       screen.getByRole("button", { name: /count is/i }),
+    ).toBeInTheDocument();
+
+    // Verify theme selector exists
+    expect(screen.getByRole("combobox")).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /reset theme/i }),
     ).toBeInTheDocument();
   });
 
@@ -74,9 +89,20 @@ describe("App Component", () => {
     expect(heading).toBeVisible();
 
     // Check that interactive elements are present and accessible
-    const button = screen.getByRole("button", { name: /count is/i });
-    expect(button).toBeVisible();
-    expect(button).toBeEnabled();
+    const counterButton = screen.getByRole("button", { name: /count is/i });
+    expect(counterButton).toBeVisible();
+    expect(counterButton).toBeEnabled();
+
+    // Check that theme selector is accessible
+    const themeSelect = screen.getByRole("combobox");
+    expect(themeSelect).toBeVisible();
+    expect(themeSelect).toBeEnabled();
+
+    const themeResetButton = screen.getByRole("button", {
+      name: /reset theme/i,
+    });
+    expect(themeResetButton).toBeVisible();
+    expect(themeResetButton).toBeEnabled();
   });
 
   it("should render counter with initial state", () => {

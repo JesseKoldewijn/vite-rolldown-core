@@ -36,7 +36,7 @@ A modern React application built with Vite (using Rolldown bundler) and TypeScri
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone git@github.com:JesseKoldewijn/vite-rolldown-core.git
 cd vite-rolldown-core
 
 # Install dependencies

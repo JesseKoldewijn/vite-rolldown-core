@@ -35,7 +35,6 @@ const useCounter_setInitialState = (
   stateDispatch: React.Dispatch<React.SetStateAction<number>>,
 ) => {
   useLayoutEffect(() => {
-    console.log("Counter initialization effect running");
     const setInitialState = () => {
       try {
         const localStorageKey = "count";
