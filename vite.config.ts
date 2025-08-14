@@ -20,6 +20,11 @@ export default defineConfig({
         advancedChunks: {
           groups: [{ name: "vendor", test: /\/react(?:-dom)?/ }],
         },
+        // manualChunks(id) {
+        //   if (/\/react(?:-dom)?/.test(id)) {
+        //     return "vendor";
+        //   }
+        // },
       },
     },
   },

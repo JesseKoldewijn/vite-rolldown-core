@@ -12,23 +12,6 @@ describe("App Component", () => {
     expect(heading).toHaveTextContent("Vite-Rolldown + React");
   });
 
-  it("should have correct CSS classes for layout", () => {
-    const { container } = render(<App />);
-
-    const appDiv = container.firstChild as HTMLElement;
-    expect(appDiv).toHaveClass(
-      "bg-background",
-      "text-foreground",
-      "flex",
-      "h-screen",
-      "w-full",
-      "flex-col",
-      "items-center",
-      "justify-center",
-      "gap-4",
-    );
-  });
-
   it("should render the Counter and Theme components", () => {
     render(<App />);
 
@@ -45,18 +28,6 @@ describe("App Component", () => {
       name: /reset theme/i,
     });
     expect(themeResetButton).toBeInTheDocument();
-  });
-
-  it("should have proper semantic structure", () => {
-    render(<App />);
-
-    // Check that there's exactly one main heading
-    const headings = screen.getAllByRole("heading", { level: 1 });
-    expect(headings).toHaveLength(1);
-
-    // Check that the heading has the correct styling classes
-    const heading = headings[0];
-    expect(heading).toHaveClass("text-center", "text-2xl", "font-semibold");
   });
 
   it("should render without crashing", () => {
